@@ -25,11 +25,16 @@
   --accent-strong: #ff007a;
 }
 
-html, body {
+html {
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  overflow: hidden;
+}
+
+body {
   margin: 0;
   padding: 0;
   font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #18182f 0, #050510 55%, #000006 100%);
   color: var(--text-main);
 }
 
@@ -587,6 +592,114 @@ section {
 
 .footer-sub {
   margin-top: 4px;
+}
+
+/* Estrellas animadas (parallax) */
+
+#stars,
+#stars2,
+#stars3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    147px 188px #FFF, 253px 456px #FFF, 789px 123px #FFF, 612px 89px #FFF,
+    345px 234px #FFF, 987px 567px #FFF, 432px 654px #FFF, 876px 345px #FFF,
+    234px 876px #FFF, 654px 432px #FFF, 111px 789px #FFF, 999px 211px #FFF,
+    567px 678px #FFF, 401px 345px #FFF, 823px 512px #FFF, 678px 245px #FFF,
+    312px 567px #FFF, 745px 234px #FFF, 890px 678px #FFF, 156px 432px #FFF,
+    523px 789px #FFF, 367px 123px #FFF, 912px 456px #FFF, 234px 345px #FFF,
+    789px 234px #FFF, 456px 567px #FFF, 678px 890px #FFF, 123px 456px #FFF,
+    534px 678px #FFF, 890px 234px #FFF, 345px 123px #FFF, 756px 789px #FFF,
+    212px 234px #FFF, 867px 345px #FFF, 423px 456px #FFF, 678px 567px #FFF,
+    234px 678px #FFF, 901px 123px #FFF, 567px 234px #FFF, 812px 678px #FFF,
+    345px 456px #FFF, 723px 234px #FFF, 534px 345px #FFF, 456px 234px #FFF;
+  animation: animStar 50s linear infinite;
+}
+
+#stars::after {
+  content: " ";
+  position: fixed;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    147px 188px #FFF, 253px 456px #FFF, 789px 123px #FFF, 612px 89px #FFF,
+    345px 234px #FFF, 987px 567px #FFF, 432px 654px #FFF, 876px 345px #FFF,
+    234px 876px #FFF, 654px 432px #FFF, 111px 789px #FFF, 999px 211px #FFF,
+    567px 678px #FFF, 401px 345px #FFF, 823px 512px #FFF, 678px 245px #FFF,
+    312px 567px #FFF, 745px 234px #FFF, 890px 678px #FFF, 156px 432px #FFF,
+    523px 789px #FFF, 367px 123px #FFF, 912px 456px #FFF, 234px 345px #FFF,
+    789px 234px #FFF, 456px 567px #FFF, 678px 890px #FFF, 123px 456px #FFF,
+    534px 678px #FFF, 890px 234px #FFF, 345px 123px #FFF, 756px 789px #FFF,
+    212px 234px #FFF, 867px 345px #FFF, 423px 456px #FFF, 678px 567px #FFF,
+    234px 678px #FFF, 901px 123px #FFF, 567px 234px #FFF, 812px 678px #FFF,
+    345px 456px #FFF, 723px 234px #FFF, 534px 345px #FFF, 456px 234px #FFF;
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    456px 234px #FFF, 678px 567px #FFF, 234px 890px #FFF, 899px 345px #FFF,
+    567px 123px #FFF, 234px 456px #FFF, 890px 678px #FFF, 345px 234px #FFF,
+    723px 567px #FFF, 412px 234px #FFF, 867px 456px #FFF, 234px 567px #FFF,
+    789px 234px #FFF, 456px 678px #FFF, 345px 567px #FFF, 812px 234px #FFF;
+  animation: animStar 100s linear infinite;
+}
+
+#stars2::after {
+  content: " ";
+  position: fixed;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    456px 234px #FFF, 678px 567px #FFF, 234px 890px #FFF, 899px 345px #FFF,
+    567px 123px #FFF, 234px 456px #FFF, 890px 678px #FFF, 345px 234px #FFF,
+    723px 567px #FFF, 412px 234px #FFF, 867px 456px #FFF, 234px 567px #FFF,
+    789px 234px #FFF, 456px 678px #FFF, 345px 567px #FFF, 812px 234px #FFF;
+}
+
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 
+    234px 567px #FFF, 890px 234px #FFF, 567px 890px #FFF, 345px 234px #FFF,
+    723px 567px #FFF, 234px 890px #FFF, 890px 456px #FFF, 345px 567px #FFF;
+  animation: animStar 150s linear infinite;
+}
+
+#stars3::after {
+  content: " ";
+  position: fixed;
+  top: 2000px;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 
+    234px 567px #FFF, 890px 234px #FFF, 567px 890px #FFF, 345px 234px #FFF,
+    723px 567px #FFF, 234px 890px #FFF, 890px 456px #FFF, 345px 567px #FFF;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
 }
 
 /* Responsivo */
