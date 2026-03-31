@@ -5,6 +5,17 @@
   <title>Gabriel Lugo · Infraestructura & IA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Perfil profesional de Gabriel Lugo: infraestructura, redes, automatización e inteligencia artificial aplicada.">
+  <meta name="theme-color" content="#050510">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gabriel Lugo · Infraestructura & IA">
+  <meta property="og:description" content="Infraestructura, redes, automatización e inteligencia artificial aplicada a sistemas reales.">
+  <meta property="og:url" content="https://universe-xt.com/">
+  <meta property="og:image" content="https://universe-xt.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gabriel Lugo · Infraestructura & IA">
+  <meta name="twitter:description" content="Infraestructura, redes, automatización e inteligencia artificial aplicada a sistemas reales.">
+  <meta name="twitter:image" content="https://universe-xt.com/og-image.jpg">
+  <link rel="canonical" href="https://universe-xt.com/">
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,17 +31,29 @@
         <span class="logo-dot"></span>
         <span class="logo-text">universe-xt</span>
       </div>
-      <nav class="nav">
+      <nav class="nav" id="primaryNav" aria-label="Navegación principal">
         <a href="#about">Sobre mí</a>
         <a href="#skills">Stack</a>
         <a href="#projects">Proyectos</a>
         <a href="#certifications">Certificaciones</a>
         <a href="#contact">Contacto</a>
       </nav>
-      <button class="chip" id="themeToggle" title="Cambiar contraste">
-        ⬤
-      </button>
+      <div class="topbar-actions">
+        <button class="chip" id="themeToggle" type="button" title="Cambiar contraste" aria-label="Cambiar contraste" aria-pressed="false">
+          ⬤
+        </button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Abrir menú">
+          Menú
+        </button>
+      </div>
     </header>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil" data-open="false">
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Stack</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#certifications">Certificaciones</a>
+      <a href="#contact">Contacto</a>
+    </nav>
 
     <main>
       <section class="hero" id="top">
@@ -258,7 +281,7 @@
                 </div>
               </div>
               <p class="cert-type">HIKVISION SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20HCSA-CCTV" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
 
@@ -283,7 +306,7 @@
                 </div>
               </div>
               <p class="cert-type">HIKVISION SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20HCSA-Access%20Control" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
 
@@ -308,7 +331,7 @@
                 </div>
               </div>
               <p class="cert-type">HIKVISION SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20HCSA-Display" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
 
@@ -333,7 +356,7 @@
                 </div>
               </div>
               <p class="cert-type">HIKVISION SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20HCSA-Thermal" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
 
@@ -358,7 +381,7 @@
                 </div>
               </div>
               <p class="cert-type">GENERAL SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20CGSA-Access%20Control" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
 
@@ -383,7 +406,7 @@
                 </div>
               </div>
               <p class="cert-type">GENERAL SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20CGSA-Security" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
 
@@ -408,7 +431,7 @@
                 </div>
               </div>
               <p class="cert-type">GENERAL SECURITY CERTIFICATION</p>
-              <a href="#" class="cert-link">Ver certificado</a>
+              <a href="mailto:gabriel@universe-xt.com?subject=Solicitud%20certificado%20CGSA-Display" class="cert-link">Solicitar certificado</a>
             </div>
           </article>
         </div>
@@ -426,9 +449,9 @@
               <h3>Canales directos</h3>
               <ul class="contact-list">
                 <li><span class="contact-label">Email:</span> <a href="mailto:gabriel@universe-xt.com">📧 gabriel@universe-xt.com</a></li>
-                <li><span class="contact-label">Whatsapp:</span> <a href="https://wa.me/+543704606244" target="https://wa.me/+543704606244" rel="noopener">💬 Whatsapp</a></li>
-                <li><span class="contact-label">GitHub:</span> <a href="#" target="_blank" rel="noopener">🐙 github.com/Cavis123</a></li>
-                <li><span class="contact-label">Discord:</span> <a href="https://discord.com/users/416008557759299594" target="_blank" rel="noopener">🎮 Gabriel#1234</a></li>
+                <li><span class="contact-label">Whatsapp:</span> <a href="https://wa.me/543704606244" target="_blank" rel="noopener noreferrer">💬 Whatsapp</a></li>
+                <li><span class="contact-label">GitHub:</span> <a href="https://github.com/Cavis123" target="_blank" rel="noopener noreferrer">🐙 github.com/Cavis123</a></li>
+                <li><span class="contact-label">Discord:</span> <a href="https://discord.com/users/416008557759299594" target="_blank" rel="noopener noreferrer">🎮 Gabriel#1234</a></li>
               </ul>
             </div>
             <div>
