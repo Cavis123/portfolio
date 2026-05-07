@@ -11,7 +11,6 @@
   const playerNameInput = document.getElementById("playerName");
   const rankList = document.getElementById("rankList");
   const rankTitle = document.getElementById("rankTitle");
-  const clearRankButton = document.getElementById("clearRank");
   const backLink = document.querySelector(".back-link");
   const overTitle = document.querySelector(".tower-over h1");
   const overText = document.querySelector(".tower-over p:nth-child(2)");
@@ -35,7 +34,6 @@
       overHint: "Click o espacio para volver a empezar",
       rankTitle: "Ranking",
       emptyRank: "Todavía no hay scores.",
-      clearRank: "Limpiar",
       toggle: "EN",
       aria: "Switch to English",
     },
@@ -53,7 +51,6 @@
       overHint: "Click or spacebar to start again",
       rankTitle: "Ranking",
       emptyRank: "No scores yet.",
-      clearRank: "Clear",
       toggle: "ES",
       aria: "Cambiar a español",
     },
@@ -74,7 +71,6 @@
     if (scoreFormButton) scoreFormButton.textContent = text.saveButton;
     if (overHint) overHint.textContent = text.overHint;
     if (rankTitle) rankTitle.textContent = text.rankTitle;
-    if (clearRankButton) clearRankButton.textContent = text.clearRank;
     if (langButton) {
       langButton.textContent = text.toggle;
       langButton.setAttribute("aria-label", text.aria);
@@ -128,11 +124,6 @@
     event.stopPropagation();
     const current = localStorage.getItem(LANG_KEY) || "es";
     applyLanguage(current === "es" ? "en" : "es");
-  });
-
-  clearRankButton?.addEventListener("click", (event) => {
-    event.stopPropagation();
-    setRankings([]);
   });
 
   if (!window.THREE || !container || !gameHost || !scoreEl) return;
