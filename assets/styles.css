@@ -292,6 +292,12 @@ a {
   font-size: 0.82rem;
 }
 
+.bored-link {
+  min-width: 92px;
+  color: var(--orange);
+  border-color: rgba(255, 159, 67, 0.32);
+}
+
 .language-toggle {
   width: auto;
   min-width: 46px;
@@ -936,6 +942,50 @@ pre {
 
 .skill-panel {
   padding: 24px;
+}
+
+.stack-keywords {
+  margin-top: 22px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(72, 243, 255, 0.08), rgba(255, 45, 248, 0.05)), var(--panel);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.stack-keywords h3 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-family: var(--font-code);
+  font-size: 1rem;
+}
+
+.stack-keywords ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack-keywords li {
+  padding: 6px 11px;
+  border: 1px solid rgba(72, 243, 255, 0.2);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(4, 7, 18, 0.55);
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  transition: transform 160ms ease, color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.stack-keywords li:hover {
+  transform: translateY(-2px);
+  color: var(--text);
+  border-color: rgba(72, 243, 255, 0.45);
+  background: rgba(72, 243, 255, 0.1);
 }
 
 .skill-meter {
