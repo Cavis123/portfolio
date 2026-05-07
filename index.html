@@ -19,363 +19,339 @@
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050510'/%3E%3Ctext x='32' y='40' font-size='24' text-anchor='middle' fill='%2348f3ff' font-family='Arial'%3EGL%3C/text%3E%3C/svg%3E">
 </head>
-<body>
-  <div class="noise-layer"></div>
-  <div class="page-wrapper">
-    <header class="topbar">
-      <a class="logo-mark" href="#top" aria-label="Ir al inicio">
-        <span class="logo-dot"></span>
-        <span class="logo-text">universe-xt</span>
+<body data-theme="dark">
+  <div class="loader-screen" id="loader">
+    <div class="loader-card">
+      <div class="loader-code">
+        <span>const portfolio = {</span>
+        <span>  owner: "Gabriel Lugo",</span>
+        <span>  stack: ["Linux", "IA", "Redes"],</span>
+        <span>  status: "initializing"</span>
+        <span>};</span>
+      </div>
+      <div class="loader-track"><span id="loaderBar"></span></div>
+      <strong id="loaderPercent">0%</strong>
+    </div>
+  </div>
+
+  <div class="site-bg" aria-hidden="true">
+    <div class="code-grid-bg"></div>
+    <div class="floating-particles" id="particles"></div>
+  </div>
+
+  <header class="main-header" id="header">
+    <nav class="nav-container" aria-label="Navegación principal">
+      <a class="brand-logo" href="#home" aria-label="Ir al inicio">
+        <span>&lt;</span><strong>GL</strong><span>/&gt;</span>
       </a>
-      <nav class="nav" id="primaryNav" aria-label="Navegación principal">
-        <a href="#about">Sobre mí</a>
-        <a href="#services">Servicios</a>
-        <a href="#projects">Casos</a>
-        <a href="#skills">Stack</a>
-        <a href="certifications.html">Certificaciones</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-      <div class="topbar-actions">
-        <button class="chip" id="themeToggle" type="button" title="Cambiar contraste" aria-label="Cambiar contraste" aria-pressed="false">
-          ◒
-        </button>
-        <button class="egg-toggle" id="meltToggle" type="button" title="Easter egg: derretir" aria-label="Activar efecto de derretido" aria-pressed="false">
-          FX
-        </button>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mobileNav" aria-expanded="false" aria-label="Abrir menú">
-          Menú
+
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active" data-section="home"><span class="nav-icon">⌂</span><span>Inicio</span></a>
+        <a href="#about" class="nav-link" data-section="about"><span class="nav-icon">◉</span><span>Perfil</span></a>
+        <a href="#services" class="nav-link" data-section="services"><span class="nav-icon">▦</span><span>Servicios</span></a>
+        <a href="#skills" class="nav-link" data-section="skills"><span class="nav-icon">{}</span><span>Stack</span></a>
+        <a href="#projects" class="nav-link" data-section="projects"><span class="nav-icon">↗</span><span>Casos</span></a>
+        <a href="#contact" class="nav-link" data-section="contact"><span class="nav-icon">@</span><span>Contacto</span></a>
+      </div>
+
+      <div class="nav-controls">
+        <a class="nav-control-link" href="certifications.html">Certs</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar contraste" aria-pressed="false">◐</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
         </button>
       </div>
-    </header>
-    <nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil" data-open="false">
-      <a href="#about">Sobre mí</a>
-      <a href="#services">Servicios</a>
-      <a href="#projects">Casos</a>
-      <a href="#skills">Stack</a>
-      <a href="certifications.html">Certificaciones</a>
-      <a href="#contact">Contacto</a>
     </nav>
+  </header>
 
-    <main>
-      <section class="hero" id="top">
-        <div class="hero-left">
-          <p class="hero-kicker">Infraestructura · IA · Automatización</p>
-          <h1 class="hero-title">
-            <span class="glitch" data-text="Gabriel Lugo">Gabriel Lugo</span>
+  <main class="main-content">
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+        <div class="hero-content reveal">
+          <p class="hero-greeting"><span>Hola, soy</span><span class="cursor">|</span></p>
+          <h1 class="hero-name">
+            <span class="code-keyword">const</span>
+            <span class="code-variable">GabrielLugo</span>
+            <span class="code-operator">=</span>
+            <span class="code-string">"Infraestructura & IA"</span><span class="code-semicolon">;</span>
           </h1>
-          <p class="hero-subtitle">
-            Diseño, despliego y estabilizo sistemas IT que combinan <strong>servidores, redes,
-            automatización e inteligencia artificial</strong> para operar en entornos reales.
+          <p class="hero-role"><span>//</span> Arquitectura IT, redes, automatización e IA local</p>
+          <p class="hero-description">
+            Diseño, despliego y estabilizo sistemas que combinan servidores, redes, APIs,
+            automatización y modelos de IA para operar en producción.
           </p>
 
-          <div class="hero-actions">
-            <a href="#projects" class="btn primary">Ver casos de estudio</a>
-            <a href="#contact" class="btn ghost">Consultar proyecto</a>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary"><span>Consultar proyecto</span><span>→</span></a>
+            <a href="#projects" class="btn btn-secondary"><span>Ver casos</span><span>{ }</span></a>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-item">
-              <span class="meta-label">Foco actual</span>
-              <span class="meta-value">Infraestructura Linux · IA local · automatización operativa</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Stack de trabajo</span>
-              <span class="meta-value">Debian · Nginx · Python · FastAPI · Docker · Cloudflare</span>
-            </div>
+          <div class="hero-social" aria-label="Canales">
+            <a href="mailto:gabriel@universe-xt.com" title="Email">✉</a>
+            <a href="https://github.com/Cavis123" target="_blank" rel="noopener noreferrer" title="GitHub">GH</a>
+            <a href="https://wa.me/543704606244" target="_blank" rel="noopener noreferrer" title="Whatsapp">WA</a>
+            <a href="certifications.html" title="Certificaciones">CV</a>
           </div>
         </div>
 
-        <div class="hero-right">
-          <div class="hud-card">
-            <div class="hud-header">
-              <span class="status-dot"></span>
-              <span class="hud-title">System Snapshot</span>
+        <div class="hero-visual reveal">
+          <div class="profile-orbit">
+            <div class="profile-glow"></div>
+            <div class="profile-frame">
+              <div class="profile-code">
+                <span class="terminal-dotline"><i></i><i></i><i></i></span>
+                <pre><code>system.boot({
+  linux: "Debian",
+  proxy: "Nginx",
+  ai: "Local RAG",
+  uptime: "24/7"
+});</code></pre>
+              </div>
             </div>
-            <div class="hud-body">
-              <div class="hud-metric">
-                <span class="label">Disponibilidad</span>
-                <span class="value">24/7</span>
-              </div>
-              <div class="hud-metric">
-                <span class="label">Áreas conectadas</span>
-                <span class="value">Red · Backend · IA</span>
-              </div>
-              <div class="hud-metric">
-                <span class="label">Modo de trabajo</span>
-                <span class="value">Documentado</span>
-              </div>
-              <div class="hud-divider"></div>
-              <p class="hud-note">
-                Soluciones con arquitectura clara, monitoreo desde el inicio y foco en mantenimiento.
-              </p>
+            <div class="floating-badge badge-1">
+              <strong>Linux</strong>
+              <span>Debian · Nginx · SSL</span>
+            </div>
+            <div class="floating-badge badge-2">
+              <strong>IA local</strong>
+              <span>Ollama · RAG · APIs</span>
+            </div>
+            <div class="floating-badge badge-3">
+              <strong>Redes</strong>
+              <span>VLAN · DNS · Monitoreo</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+      <a class="scroll-indicator" href="#about" aria-label="Bajar a perfil">
+        <span class="scroll-mouse"><i></i></span>
+        <span>Scroll</span>
+      </a>
+    </section>
 
-      <section class="section" id="about">
-        <div class="section-header">
-          <h2>Sobre mí</h2>
-          <p>Perfil técnico orientado a sistemas que tienen que funcionar todos los días.</p>
-        </div>
-        <div class="grid grid-2">
-          <article class="card glass">
-            <h3>Quién soy</h3>
+    <section class="section about-section" id="about">
+      <div class="section-container">
+        <header class="section-header reveal">
+          <span class="section-number">01</span>
+          <h2><span>&lt;</span>Perfil<span>/&gt;</span></h2>
+          <div class="section-line"></div>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
             <p>
-              Profesional IT enfocado en <strong>infraestructura, redes, automatización e IA aplicada</strong>.
-              Me interesa construir soluciones que no dependan de una demo perfecta: tienen que ser operables,
-              observables y sostenibles.
+              Profesional IT enfocado en infraestructura, redes, automatización e inteligencia artificial aplicada.
+              Trabajo desde la base operativa del sistema hasta la experiencia que usan las personas todos los días.
             </p>
             <p>
-              Trabajo desde la capa física y lógica de red hasta servicios web, APIs, scripts, paneles internos
-              y asistentes basados en documentación propia.
+              Mi criterio es simple: arquitectura clara, documentación replicable, observabilidad y automatización
+              progresiva para que las soluciones se puedan mantener.
             </p>
-          </article>
-          <article class="card glass">
-            <h3>Cómo trabajo</h3>
-            <ul class="tag-list">
-              <li>Primero arquitectura y alcance; después comandos, scripts y despliegue.</li>
-              <li>Documentación replicable para instalación, operación y recuperación.</li>
-              <li>Monitoreo, logs y alertas pensados desde el primer día.</li>
-              <li>Automatización progresiva: resolver lo repetitivo sin romper lo estable.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <strong class="stat-number" data-count="24">0</strong>
+                <span>Operación 24/7</span>
+              </div>
+              <div class="stat-card">
+                <strong class="stat-number" data-count="6">0</strong>
+                <span>Áreas técnicas</span>
+              </div>
+              <div class="stat-card">
+                <strong class="stat-number" data-count="100">0</strong>
+                <span>Foco en uptime</span>
+              </div>
+            </div>
+          </div>
 
-      <section class="section" id="services">
-        <div class="section-header">
-          <h2>Servicios</h2>
-          <p>Áreas donde puedo aportar diseño, implementación y mejora operativa.</p>
+          <div class="code-card reveal">
+            <div class="terminal-head"><span></span><span></span><span></span></div>
+            <pre><code><span class="code-keyword">const</span> engineer = {
+  name: <span class="code-string">"Gabriel Lugo"</span>,
+  focus: [<span class="code-string">"infra"</span>, <span class="code-string">"networks"</span>, <span class="code-string">"ai"</span>],
+  mindset: <span class="code-string">"production first"</span>,
+  docs: <span class="code-keyword">true</span>
+};</code></pre>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="grid grid-3">
-          <article class="card service-card">
-            <span class="service-index">01</span>
+    <section class="section services-section" id="services">
+      <div class="section-container">
+        <header class="section-header reveal">
+          <span class="section-number">02</span>
+          <h2><span>&lt;</span>Servicios<span>/&gt;</span></h2>
+          <div class="section-line"></div>
+        </header>
+
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span>01</span>
             <h3>Infraestructura Linux</h3>
-            <p>Servidores Debian/Ubuntu, Nginx, SSL/TLS, reverse proxy, hardening básico, backups y servicios internos.</p>
+            <p>Debian/Ubuntu, Nginx, SSL/TLS, reverse proxy, hardening básico, backups y servicios internos.</p>
           </article>
-          <article class="card service-card">
-            <span class="service-index">02</span>
+          <article class="service-card reveal">
+            <span>02</span>
             <h3>Redes & observabilidad</h3>
-            <p>Segmentación, VLANs, DNS, DHCP, firewalls, dashboards, SNMP, logs y alertas para operar con visibilidad.</p>
+            <p>Segmentación, VLANs, DNS, DHCP, firewalls, dashboards, SNMP, logs y alertas.</p>
           </article>
-          <article class="card service-card">
-            <span class="service-index">03</span>
+          <article class="service-card reveal">
+            <span>03</span>
             <h3>IA local & RAG</h3>
-            <p>Asistentes internos con modelos locales, recuperación sobre documentación propia y paneles de administración.</p>
+            <p>Asistentes internos con modelos locales, documentación propia, APIs y paneles de gestión.</p>
           </article>
-          <article class="card service-card">
-            <span class="service-index">04</span>
+          <article class="service-card reveal">
+            <span>04</span>
             <h3>Automatización</h3>
-            <p>Scripts Python, APIs FastAPI, tareas programadas, reportes y flujos que reducen trabajo manual repetitivo.</p>
+            <p>Scripts Python, FastAPI, tareas programadas, reportes y flujos para reducir operación manual.</p>
           </article>
-          <article class="card service-card">
-            <span class="service-index">05</span>
+          <article class="service-card reveal">
+            <span>05</span>
             <h3>Windows Server</h3>
-            <p>Active Directory, DNS, DHCP, políticas, impresoras, file server y administración de entornos mixtos.</p>
+            <p>Active Directory, DNS, DHCP, políticas, impresoras, file server y entornos mixtos.</p>
           </article>
-          <article class="card service-card">
-            <span class="service-index">06</span>
+          <article class="service-card reveal">
+            <span>06</span>
             <h3>Paneles internos</h3>
-            <p>Interfaces web para turnos, reportes, gestión documental, administración de servicios y control operativo.</p>
+            <p>Interfaces para turnos, reportes, gestión documental, administración y control operativo.</p>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="projects">
-        <div class="section-header">
-          <h2>Casos de estudio</h2>
-          <p>Proyectos resumidos con problema, solución y resultado esperado.</p>
-        </div>
+    <section class="section skills-section" id="skills">
+      <div class="section-container">
+        <header class="section-header reveal">
+          <span class="section-number">03</span>
+          <h2><span>&lt;</span>Stack<span>/&gt;</span></h2>
+          <div class="section-line"></div>
+        </header>
 
-        <div class="case-list">
-          <article class="case-study">
-            <div class="case-main">
-              <span class="project-pill">Infraestructura · IA local</span>
-              <h3>Asistente interno con conocimiento propio</h3>
-              <p>
-                Implementación de una experiencia tipo ChatGPT en servidores propios, usando documentación interna
-                como fuente de conocimiento y un panel web para administrar archivos y consultas.
-              </p>
-            </div>
-            <div class="case-details">
-              <div>
-                <span class="case-label">Problema</span>
-                <p>Información dispersa, consultas repetidas y dependencia de personas clave para encontrar respuestas.</p>
-              </div>
-              <div>
-                <span class="case-label">Solución</span>
-                <p>RAG sobre documentación interna, API backend, interfaz web y despliegue detrás de Nginx.</p>
-              </div>
-              <ul class="project-meta">
-                <li>Debian</li>
-                <li>FastAPI</li>
-                <li>Ollama</li>
-                <li>SQLite</li>
-                <li>Nginx</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="case-study">
-            <div class="case-main">
-              <span class="project-pill">Redes · Monitoreo</span>
-              <h3>Segmentación y visibilidad de infraestructura</h3>
-              <p>
-                Diseño de topología, direccionamiento, VLANs y monitoreo para ordenar una red corporativa y detectar
-                problemas antes de que escalen.
-              </p>
-            </div>
-            <div class="case-details">
-              <div>
-                <span class="case-label">Problema</span>
-                <p>Baja visibilidad del tráfico, crecimiento desordenado y diagnóstico lento ante incidentes.</p>
-              </div>
-              <div>
-                <span class="case-label">Solución</span>
-                <p>Separación lógica de servicios, documentación de red, métricas, dashboards y alertas proactivas.</p>
-              </div>
-              <ul class="project-meta">
-                <li>VLANs</li>
-                <li>Routing</li>
-                <li>SNMP</li>
-                <li>Dashboards</li>
-                <li>Alertas</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="case-study">
-            <div class="case-main">
-              <span class="project-pill">Automatización · Backend</span>
-              <h3>Paneles web para procesos diarios</h3>
-              <p>
-                Desarrollo de interfaces internas para centralizar turnos, reportes y operaciones conectadas a bases
-                de datos existentes.
-              </p>
-            </div>
-            <div class="case-details">
-              <div>
-                <span class="case-label">Problema</span>
-                <p>Procesos manuales, archivos sueltos y falta de una vista única para operar o consultar información.</p>
-              </div>
-              <div>
-                <span class="case-label">Solución</span>
-                <p>Paneles web livianos, formularios, reportes, conexión a base de datos y flujos más simples.</p>
-              </div>
-              <ul class="project-meta">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>MySQL</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="skills">
-        <div class="section-header">
-          <h2>Stack & foco técnico</h2>
-          <p>Herramientas y tecnologías con las que construyo soluciones.</p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card neon-border">
+        <div class="skills-layout">
+          <div class="skill-panel reveal">
             <h3>Infraestructura & Redes</h3>
-            <ul class="skill-list">
-              <li>Linux Debian/Ubuntu</li>
-              <li>Nginx / reverse proxy</li>
-              <li>DNS · Cloudflare · SSL/TLS</li>
-              <li>VLANs, routing, firewalls</li>
-              <li>Monitoreo y dashboards</li>
-            </ul>
-          </article>
-
-          <article class="card neon-border">
+            <div class="skill-meter" data-level="92"><span>Linux / Nginx</span><i></i></div>
+            <div class="skill-meter" data-level="86"><span>DNS / Cloudflare / SSL</span><i></i></div>
+            <div class="skill-meter" data-level="82"><span>VLANs / Routing / Firewalls</span><i></i></div>
+          </div>
+          <div class="skill-panel reveal">
             <h3>Backend & Automatización</h3>
-            <ul class="skill-list">
-              <li>Python · FastAPI</li>
-              <li>APIs REST · WebSocket</li>
-              <li>Integración con bases de datos</li>
-              <li>Jobs programados · systemd</li>
-              <li>Scripts de automatización</li>
-            </ul>
-          </article>
-
-          <article class="card neon-border">
-            <h3>IA & Experiencia</h3>
-            <ul class="skill-list">
-              <li>Modelos de lenguaje locales</li>
-              <li>RAG sobre documentación interna</li>
-              <li>Experiencias tipo ChatGPT</li>
-              <li>Paneles de administración web</li>
-              <li>Integración en flujos reales</li>
-            </ul>
-          </article>
-
-          <article class="card neon-border">
-            <h3>Windows & Infrastructure</h3>
-            <ul class="skill-list">
-              <li>Windows Server management</li>
-              <li>DHCP / DNS / Active Directory</li>
-              <li>Administración de políticas de AD</li>
-              <li>Gestión de impresoras en Windows Server</li>
-              <li>Windows File Server</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section credentials-strip" aria-labelledby="credentials-title">
-        <div>
-          <h2 id="credentials-title">Certificaciones profesionales</h2>
-          <p>Moví las certificaciones a una página dedicada para mantener el inicio enfocado en servicios y casos.</p>
-        </div>
-        <a href="certifications.html" class="btn ghost">Ver certificaciones</a>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="section-header">
-          <h2>Contacto</h2>
-          <p>Si necesitás ordenar infraestructura, automatizar procesos o incorporar IA local, hablemos.</p>
-        </div>
-
-        <div class="contact-panel">
-          <div class="contact-grid">
-            <div>
-              <h3>Canales directos</h3>
-              <ul class="contact-list">
-                <li><span class="contact-label">Email:</span> <a href="mailto:gabriel@universe-xt.com">gabriel@universe-xt.com</a></li>
-                <li><span class="contact-label">Whatsapp:</span> <a href="https://wa.me/543704606244" target="_blank" rel="noopener noreferrer">Whatsapp</a></li>
-                <li><span class="contact-label">GitHub:</span> <a href="https://github.com/Cavis123" target="_blank" rel="noopener noreferrer">github.com/Cavis123</a></li>
-                <li><span class="contact-label">Discord:</span> <a href="https://discord.com/users/416008557759299594" target="_blank" rel="noopener noreferrer">Gabriel#1234</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3>Estado</h3>
-              <p class="status-pill">Abierto a colaboraciones y proyectos desafiantes.</p>
-              <p>
-                Puedo ayudar a diseñar, desplegar o estabilizar infraestructura, o a incorporar IA de forma realista
-                a sistemas existentes.
-              </p>
-            </div>
+            <div class="skill-meter" data-level="88"><span>Python / FastAPI</span><i></i></div>
+            <div class="skill-meter" data-level="78"><span>APIs / WebSocket</span><i></i></div>
+            <div class="skill-meter" data-level="84"><span>systemd / Jobs / Scripts</span><i></i></div>
+          </div>
+          <div class="skill-panel reveal">
+            <h3>IA & Operación</h3>
+            <div class="skill-meter" data-level="86"><span>Modelos locales</span><i></i></div>
+            <div class="skill-meter" data-level="82"><span>RAG documental</span><i></i></div>
+            <div class="skill-meter" data-level="80"><span>Paneles de administración</span><i></i></div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer class="footer">
-        <p>© <span id="year"></span> Gabriel Lugo · universe-xt</p>
-        <p class="footer-sub">Construido con HTML, CSS y foco en sistemas reales.</p>
-      </footer>
-    </main>
-  </div>
-  <canvas class="melt-canvas" id="meltCanvas" aria-hidden="true"></canvas>
+    <section class="section projects-section" id="projects">
+      <div class="section-container">
+        <header class="section-header reveal">
+          <span class="section-number">04</span>
+          <h2><span>&lt;</span>Casos<span>/&gt;</span></h2>
+          <div class="section-line"></div>
+        </header>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="project-card">
+              <span class="project-tag">Infraestructura · IA local</span>
+              <h3>Asistente interno con conocimiento propio</h3>
+              <p>Experiencia tipo ChatGPT en servidores propios con documentación interna como fuente de conocimiento.</p>
+              <ul>
+                <li>Problema: información dispersa y consultas repetidas.</li>
+                <li>Solución: RAG, API backend, interfaz web y Nginx.</li>
+              </ul>
+              <div class="tech-list"><span>Debian</span><span>FastAPI</span><span>Ollama</span><span>SQLite</span></div>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="project-card">
+              <span class="project-tag">Redes · Monitoreo</span>
+              <h3>Segmentación y visibilidad de infraestructura</h3>
+              <p>Topología, direccionamiento, VLANs y monitoreo para ordenar red corporativa y acelerar diagnóstico.</p>
+              <ul>
+                <li>Problema: baja visibilidad y crecimiento desordenado.</li>
+                <li>Solución: separación lógica, métricas, dashboards y alertas.</li>
+              </ul>
+              <div class="tech-list"><span>VLANs</span><span>Routing</span><span>SNMP</span><span>Dashboards</span></div>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="project-card">
+              <span class="project-tag">Automatización · Backend</span>
+              <h3>Paneles web para procesos diarios</h3>
+              <p>Interfaces internas para centralizar turnos, reportes y operaciones conectadas a bases existentes.</p>
+              <ul>
+                <li>Problema: procesos manuales y archivos sueltos.</li>
+                <li>Solución: paneles livianos, reportes y flujos más simples.</li>
+              </ul>
+              <div class="tech-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>MySQL</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section certifications-cta">
+      <div class="section-container cert-strip reveal">
+        <div>
+          <span class="project-tag">Credenciales</span>
+          <h2>Certificaciones profesionales</h2>
+          <p>Las certificaciones siguen en una página dedicada para no cargar el inicio.</p>
+        </div>
+        <a href="certifications.html" class="btn btn-secondary">Ver certificaciones</a>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="section-container">
+        <header class="section-header reveal">
+          <span class="section-number">05</span>
+          <h2><span>&lt;</span>Contacto<span>/&gt;</span></h2>
+          <div class="section-line"></div>
+        </header>
+
+        <div class="contact-grid">
+          <div class="contact-copy reveal">
+            <h3>Hablemos de tu infraestructura</h3>
+            <p>
+              Puedo ayudar a diseñar, desplegar o estabilizar infraestructura, o a incorporar IA local
+              de forma realista a sistemas existentes.
+            </p>
+            <p class="status-pill">Abierto a colaboraciones y proyectos desafiantes.</p>
+          </div>
+
+          <div class="terminal-contact reveal">
+            <div class="terminal-head"><span></span><span></span><span></span></div>
+            <a href="mailto:gabriel@universe-xt.com"><span>$ email</span> gabriel@universe-xt.com</a>
+            <a href="https://wa.me/543704606244" target="_blank" rel="noopener noreferrer"><span>$ whatsapp</span> +54 3704 606244</a>
+            <a href="https://github.com/Cavis123" target="_blank" rel="noopener noreferrer"><span>$ github</span> github.com/Cavis123</a>
+            <a href="https://discord.com/users/416008557759299594" target="_blank" rel="noopener noreferrer"><span>$ discord</span> Gabriel#1234</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Gabriel Lugo · universe-xt</p>
+    <p>Construido con HTML, CSS, JS y foco en sistemas reales.</p>
+  </footer>
 
   <script src="assets/main.js"></script>
 </body>
