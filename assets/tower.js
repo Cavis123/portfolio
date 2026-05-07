@@ -1,15 +1,23 @@
 (() => {
   const LANG_KEY = "preferred-language";
+  const RANK_KEY = "tower-rankings";
   const container = document.getElementById("towerContainer");
   const gameHost = document.getElementById("towerGame");
   const scoreEl = document.getElementById("towerScore");
   const instructionsEl = document.getElementById("towerInstructions");
   const startButton = document.getElementById("towerStart");
   const langButton = document.getElementById("towerLang");
+  const scoreForm = document.getElementById("scoreForm");
+  const playerNameInput = document.getElementById("playerName");
+  const rankList = document.getElementById("rankList");
+  const rankTitle = document.getElementById("rankTitle");
+  const clearRankButton = document.getElementById("clearRank");
   const backLink = document.querySelector(".back-link");
   const overTitle = document.querySelector(".tower-over h1");
   const overText = document.querySelector(".tower-over p:nth-child(2)");
-  const overHint = document.querySelector(".tower-over p:nth-child(3)");
+  const scoreFormLabel = document.querySelector(".score-form label");
+  const scoreFormButton = document.querySelector(".score-form button");
+  const overHint = document.querySelector(".tower-over p:last-child");
   const readyLabel = document.querySelector(".tower-ready p");
 
   const copy = {
@@ -21,7 +29,13 @@
       instructions: "Click o espacio para colocar el bloque",
       overTitle: "Game Over",
       overText: "Buen intento. La próxima torre sale mejor.",
+      saveLabel: "Guardar score",
+      namePlaceholder: "Tu nombre",
+      saveButton: "Guardar",
       overHint: "Click o espacio para volver a empezar",
+      rankTitle: "Ranking",
+      emptyRank: "Todavía no hay scores.",
+      clearRank: "Limpiar",
       toggle: "EN",
       aria: "Switch to English",
     },
@@ -33,7 +47,13 @@
       instructions: "Click or press spacebar to place the block",
       overTitle: "Game Over",
       overText: "You did great. The next tower will be cleaner.",
+      saveLabel: "Save score",
+      namePlaceholder: "Your name",
+      saveButton: "Save",
       overHint: "Click or spacebar to start again",
+      rankTitle: "Ranking",
+      emptyRank: "No scores yet.",
+      clearRank: "Clear",
       toggle: "ES",
       aria: "Cambiar a español",
     },
@@ -49,19 +69,70 @@
     if (instructionsEl) instructionsEl.textContent = text.instructions;
     if (overTitle) overTitle.textContent = text.overTitle;
     if (overText) overText.textContent = text.overText;
+    if (scoreFormLabel) scoreFormLabel.textContent = text.saveLabel;
+    if (playerNameInput) playerNameInput.placeholder = text.namePlaceholder;
+    if (scoreFormButton) scoreFormButton.textContent = text.saveButton;
     if (overHint) overHint.textContent = text.overHint;
+    if (rankTitle) rankTitle.textContent = text.rankTitle;
+    if (clearRankButton) clearRankButton.textContent = text.clearRank;
     if (langButton) {
       langButton.textContent = text.toggle;
       langButton.setAttribute("aria-label", text.aria);
     }
     localStorage.setItem(LANG_KEY, lang);
+    renderRankings();
   };
+
+  const getRankings = () => {
+    try {
+      return JSON.parse(localStorage.getItem(RANK_KEY) || "[]");
+    } catch {
+      return [];
+    }
+  };
+
+  const setRankings = (rankings) => {
+    localStorage.setItem(RANK_KEY, JSON.stringify(rankings.slice(0, 10)));
+    renderRankings();
+  };
+
+  function renderRankings() {
+    if (!rankList) return;
+    const lang = localStorage.getItem(LANG_KEY) || "es";
+    const rankings = getRankings();
+
+    rankList.innerHTML = "";
+    if (!rankings.length) {
+      const item = document.createElement("li");
+      item.className = "empty-rank";
+      item.textContent = copy[lang]?.emptyRank || copy.es.emptyRank;
+      rankList.appendChild(item);
+      return;
+    }
+
+    rankings.forEach((entry) => {
+      const item = document.createElement("li");
+      const name = document.createElement("span");
+      const score = document.createElement("span");
+      name.className = "rank-name";
+      score.className = "rank-score";
+      name.textContent = entry.name;
+      score.textContent = String(entry.score);
+      item.append(name, score);
+      rankList.appendChild(item);
+    });
+  }
 
   applyLanguage(localStorage.getItem(LANG_KEY) || "es");
   langButton?.addEventListener("click", (event) => {
     event.stopPropagation();
     const current = localStorage.getItem(LANG_KEY) || "es";
     applyLanguage(current === "es" ? "en" : "es");
+  });
+
+  clearRankButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setRankings([]);
   });
 
   if (!window.THREE || !container || !gameHost || !scoreEl) return;
@@ -266,6 +337,8 @@
       this.stage.scene.add(this.newBlocks, this.placedBlocks, this.choppedBlocks);
       this.blocks = [];
       this.state = STATES.LOADING;
+      this.finalScore = 0;
+      this.scoreSaved = false;
       this.addBlock();
       this.updateState(STATES.READY);
       this.bindEvents();
@@ -287,6 +360,11 @@
         event.stopPropagation();
         this.onAction();
       });
+      scoreForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        this.saveScore();
+      });
     }
 
     updateState(state) {
@@ -296,6 +374,7 @@
     }
 
     onAction() {
+      if (document.activeElement === playerNameInput) return;
       if (this.state === STATES.READY) this.startGame();
       else if (this.state === STATES.PLAYING) this.placeBlock();
       else if (this.state === STATES.ENDED) this.restartGame();
@@ -304,6 +383,8 @@
     startGame() {
       scoreEl.textContent = "0";
       instructionsEl?.classList.remove("hide");
+      this.scoreSaved = false;
+      if (playerNameInput) playerNameInput.value = "";
       this.updateState(STATES.PLAYING);
       this.addBlock();
     }
@@ -331,7 +412,10 @@
     addBlock() {
       const lastBlock = this.blocks[this.blocks.length - 1];
       if (lastBlock && lastBlock.state === BLOCK_STATE.MISSED) {
+        this.finalScore = Math.max(0, this.blocks.length - 2);
+        scoreEl.textContent = String(this.finalScore);
         this.updateState(STATES.ENDED);
+        window.setTimeout(() => playerNameInput?.focus(), 420);
         return;
       }
 
@@ -341,6 +425,21 @@
       this.blocks.push(block);
       this.stage.setCamera(this.blocks.length * 2);
       if (this.blocks.length >= 5) instructionsEl?.classList.add("hide");
+    }
+
+    saveScore() {
+      if (this.state !== STATES.ENDED || this.scoreSaved) return;
+      const fallback = localStorage.getItem(LANG_KEY) === "en" ? "Anonymous" : "Anónimo";
+      const name = (playerNameInput?.value || "").trim().slice(0, 16) || fallback;
+      const rankings = getRankings();
+      rankings.push({ name, score: this.finalScore, date: Date.now() });
+      rankings.sort((a, b) => b.score - a.score || a.date - b.date);
+      setRankings(rankings);
+      this.scoreSaved = true;
+      if (scoreFormButton) scoreFormButton.disabled = true;
+      window.setTimeout(() => {
+        if (scoreFormButton) scoreFormButton.disabled = false;
+      }, 700);
     }
 
     tick() {

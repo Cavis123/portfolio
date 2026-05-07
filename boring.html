@@ -24,6 +24,13 @@
     <section class="tower-over">
       <h1>Game Over</h1>
       <p>Buen intento. La próxima torre sale mejor.</p>
+      <form class="score-form" id="scoreForm">
+        <label for="playerName">Guardar score</label>
+        <div>
+          <input id="playerName" name="playerName" type="text" maxlength="16" autocomplete="off" placeholder="Tu nombre">
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
       <p>Click o espacio para volver a empezar</p>
     </section>
 
@@ -31,6 +38,12 @@
       <button id="towerStart" type="button">Start</button>
       <p>Tower Blocks</p>
     </section>
+
+    <aside class="rank-panel" aria-labelledby="rankTitle">
+      <h2 id="rankTitle">Ranking</h2>
+      <ol id="rankList"></ol>
+      <button id="clearRank" type="button">Limpiar</button>
+    </aside>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
