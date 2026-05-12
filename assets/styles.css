@@ -1191,6 +1191,73 @@ pre {
   margin-bottom: 0;
 }
 
+.post-section + .post-section,
+.post-section + .damage-file {
+  margin-top: 34px;
+}
+
+.post-section h2,
+.damage-file h2 {
+  margin: 0 0 16px;
+  color: var(--text);
+  font-family: var(--font-code);
+  font-size: 1.08rem;
+}
+
+.post-tags {
+  margin-top: 18px;
+}
+
+.cronicas-list {
+  max-width: 920px;
+}
+
+.damage-file {
+  padding: 24px;
+  border: 1px solid rgba(255, 159, 67, 0.32);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255, 159, 67, 0.12), rgba(255, 45, 248, 0.06)),
+    rgba(7, 9, 23, 0.88);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.34), inset 0 0 24px rgba(255, 159, 67, 0.06);
+}
+
+.damage-file h2 {
+  color: var(--orange);
+}
+
+.damage-file dl {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.damage-file dl div {
+  display: grid;
+  gap: 5px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.damage-file dl div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.damage-file dt {
+  color: var(--cyan);
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.damage-file dd {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.6;
+}
+
 .cert-strip {
   display: flex;
   align-items: center;
