@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Crónicas del Sysadmin · Universe-XT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Listado de crónicas del sysadmin en Universe-XT.">
+  <meta name="theme-color" content="#050510">
+  <link rel="canonical" href="https://universe-xt.com/cronicas/">
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body data-theme="dark">
+  <div class="site-bg" aria-hidden="true">
+    <div class="code-grid-bg"></div>
+    <div class="floating-particles" id="particles"></div>
+  </div>
+
+  <header class="main-header is-scrolled" id="header">
+    <nav class="nav-container" aria-label="Navegación principal">
+      <a class="brand-logo" href="/" aria-label="Universe-XT"><span>&lt;</span><strong>UXT</strong><span>/&gt;</span></a>
+      <div class="nav-menu" id="navMenu">
+        <a href="/" class="nav-link"><span class="nav-icon">⌂</span><span>Home</span></a>
+        <a href="/cronicas/" class="nav-link active"><span class="nav-icon">#</span><span>Crónicas</span></a>
+        <a href="/#blog" class="nav-link"><span class="nav-icon">{}</span><span>Blog</span></a>
+        <a href="/downloads/" class="nav-link"><span class="nav-icon">↓</span><span>Downloads</span></a>
+        <a href="/portfolio/" class="nav-link"><span class="nav-icon">↗</span><span>Portfolio</span></a>
+        <a href="/#contact" class="nav-link"><span class="nav-icon">@</span><span>Contact</span></a>
+      </div>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar contraste" aria-pressed="false">◐</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="hero-section listing-hero">
+      <div class="section-container">
+        <div class="hero-content reveal">
+          <p class="hero-greeting"><span>journalctl -u sysadmin --follow</span><span class="cursor">|</span></p>
+          <h1 class="hero-name"><span class="code-variable">Crónicas del Sysadmin</span></h1>
+          <p class="hero-description">Historias técnicas, incidentes narrados y notas de campo desde la operación real.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-container">
+        <header class="section-header reveal">
+          <span class="section-number">01</span>
+          <h2><span>&lt;</span>Archivo<span>/&gt;</span></h2>
+          <div class="section-line"></div>
+        </header>
+        <div class="article-list">
+          <article class="project-card reveal">
+            <span class="project-tag">Crónica · Placeholder</span>
+            <h3>El día que internet caminaba despacio</h3>
+            <p>Latencia, sospechas, trazas y una investigación que empieza con la frase más peligrosa: “no cambiamos nada”.</p>
+            <a class="text-link" href="/cronicas/el-dia-que-internet-caminaba-despacio/">Leer crónica</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Universe-XT</p>
+    <p>Crónicas técnicas en formato estático.</p>
+  </footer>
+
+  <script src="/assets/main.js"></script>
+</body>
+</html>

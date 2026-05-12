@@ -229,12 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Certificaciones · Gabriel Lugo",
         description: "Certificaciones profesionales de Gabriel Lugo en seguridad, CCTV, control de acceso, display y thermal.",
         text: {
-          ".nav-link[href='index.html#about'] span:last-child": "Perfil",
-          ".nav-link[href='index.html#services'] span:last-child": "Servicios",
-          ".nav-link[href='index.html#projects'] span:last-child": "Casos",
-          ".nav-link[href='index.html#contact'] span:last-child": "Contacto",
+          ".nav-link[href='/portfolio/#about'] span:last-child": "Perfil",
+          ".nav-link[href='/portfolio/#services'] span:last-child": "Servicios",
+          ".nav-link[href='/portfolio/#projects'] span:last-child": "Casos",
+          ".nav-link[href='/portfolio/#contact'] span:last-child": "Contacto",
           ".bored-link": "¿Aburrido?",
-          ".nav-controls .nav-control-link:not(.bored-link)": "Inicio",
+          ".nav-controls .nav-control-link:not(.bored-link)": "Portfolio",
           ".hero-greeting span:first-child": "Credenciales profesionales",
           ".hero-name .code-variable": "certificaciones",
           ".hero-description": "Certificaciones vinculadas a seguridad electrónica, CCTV, control de acceso, display y soluciones térmicas.",
@@ -252,12 +252,12 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Certifications · Gabriel Lugo",
         description: "Professional certifications of Gabriel Lugo in security, CCTV, access control, display and thermal solutions.",
         text: {
-          ".nav-link[href='index.html#about'] span:last-child": "Profile",
-          ".nav-link[href='index.html#services'] span:last-child": "Services",
-          ".nav-link[href='index.html#projects'] span:last-child": "Cases",
-          ".nav-link[href='index.html#contact'] span:last-child": "Contact",
+          ".nav-link[href='/portfolio/#about'] span:last-child": "Profile",
+          ".nav-link[href='/portfolio/#services'] span:last-child": "Services",
+          ".nav-link[href='/portfolio/#projects'] span:last-child": "Cases",
+          ".nav-link[href='/portfolio/#contact'] span:last-child": "Contact",
           ".bored-link": "Boring?",
-          ".nav-controls .nav-control-link:not(.bored-link)": "Home",
+          ".nav-controls .nav-control-link:not(.bored-link)": "Portfolio",
           ".hero-greeting span:first-child": "Professional credentials",
           ".hero-name .code-variable": "certifications",
           ".hero-description": "Certifications related to electronic security, CCTV, access control, display and thermal solutions.",
@@ -276,7 +276,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const pageKey = document.body.classList.contains("certifications-page") || location.pathname.includes("certifications")
     ? "certs"
-    : "index";
+    : document.body.classList.contains("portfolio-page") || location.pathname.includes("/portfolio")
+      ? "index"
+      : null;
 
   const setContent = (selector, value) => {
     document.querySelectorAll(selector).forEach((element) => {
@@ -290,7 +292,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const applyLanguage = (lang) => {
     const dictionary = translations[pageKey]?.[lang];
-    if (!dictionary) return;
+    if (!dictionary) {
+      if (languageToggle) {
+        languageToggle.textContent = lang === "es" ? "EN" : "ES";
+        languageToggle.setAttribute("aria-pressed", String(lang === "en"));
+        languageToggle.setAttribute("aria-label", lang === "es" ? "Switch to English" : "Cambiar a español");
+      }
+      return;
+    }
 
     document.documentElement.lang = lang;
     document.title = dictionary.title;
@@ -431,20 +440,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const sections = [...document.querySelectorAll("section[id]")];
-  const navLinks = [...document.querySelectorAll(".nav-link")];
-  const navObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!visible) return;
+  const navLinks = [...document.querySelectorAll(".nav-link[data-section]")];
+  if (navLinks.length > 0) {
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
 
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.dataset.section === visible.target.id);
-      });
-    },
-    { rootMargin: "-35% 0px -55% 0px", threshold: [0.1, 0.3, 0.6] },
-  );
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.dataset.section === visible.target.id);
+        });
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: [0.1, 0.3, 0.6] },
+    );
 
-  sections.forEach((section) => navObserver.observe(section));
+    sections.forEach((section) => navObserver.observe(section));
+  }
 });
