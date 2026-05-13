@@ -1160,16 +1160,19 @@ pre {
 .archive-chronicle-item {
   position: relative;
   display: grid;
-  gap: 4px;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 12px;
   padding: 15px 16px 15px 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   background:
-    linear-gradient(90deg, rgba(72, 243, 255, 0.1), rgba(255, 255, 255, 0.025)),
+    linear-gradient(90deg, rgba(72, 243, 255, 0.12), rgba(255, 45, 248, 0.04), rgba(255, 255, 255, 0.02)),
     rgba(4, 7, 18, 0.52);
+  box-shadow: inset 0 0 24px rgba(72, 243, 255, 0.03);
   text-decoration: none;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .archive-chronicle-item::before {
@@ -1183,18 +1186,44 @@ pre {
 
 .archive-chronicle-item:hover {
   transform: translateX(6px);
-  border-color: rgba(72, 243, 255, 0.32);
+  border-color: rgba(72, 243, 255, 0.38);
   background:
-    linear-gradient(90deg, rgba(72, 243, 255, 0.14), rgba(255, 45, 248, 0.06)),
+    linear-gradient(90deg, rgba(72, 243, 255, 0.18), rgba(255, 45, 248, 0.08)),
     rgba(7, 9, 23, 0.82);
+  box-shadow: 0 0 28px rgba(72, 243, 255, 0.12), inset 0 0 30px rgba(72, 243, 255, 0.06);
 }
 
-.archive-chronicle-item span {
+.archive-log-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 14px rgba(70, 255, 154, 0.7);
+  animation: logDotBlink 1.35s steps(2, start) infinite;
+}
+
+@keyframes logDotBlink {
+  50% {
+    opacity: 0.38;
+    box-shadow: 0 0 4px rgba(70, 255, 154, 0.28);
+  }
+}
+
+.archive-log-time {
+  color: var(--cyan);
+  font-family: var(--font-code);
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+.archive-log-title {
   color: var(--text);
   font-weight: 800;
+  min-width: 0;
 }
 
 .archive-chronicle-item small {
+  grid-column: 3;
   color: var(--muted);
   font-family: var(--font-code);
   font-size: 0.74rem;
@@ -1643,6 +1672,15 @@ pre {
 
   .nav-control-link {
     display: none;
+  }
+
+  .archive-chronicle-item {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .archive-log-time,
+  .archive-chronicle-item small {
+    grid-column: 2;
   }
 }
 
