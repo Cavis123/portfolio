@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Downloads · Universe-XT</title>
+  <title>Descargas Sysadmin | Universe-XT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Herramientas y recursos descargables de Universe-XT.">
+  <meta name="description" content="Kit gratuito de herramientas para sysadmins: monitoreo, inventario, red, acceso remoto, troubleshooting, backups y utilidades de rescate.">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#050510">
   <!-- Google Analytics tag goes here -->
   <!-- Google tag (gtag.js) -->
@@ -16,9 +17,9 @@
 
     gtag('config', 'G-ZL6GM3XEQV');
   </script>
+  <meta property="og:title" content="Descargas Sysadmin | Universe-XT">
+  <meta property="og:description" content="Herramientas freeware y open source para administradores de sistemas.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Downloads · Universe-XT">
-  <meta property="og:description" content="Herramientas y recursos descargables de Universe-XT.">
   <meta property="og:url" content="https://universe-xt.com/downloads/">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://universe-xt.com/downloads/">
@@ -26,6 +27,299 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .downloads-toolkit {
+      --tool-card: rgba(15, 23, 42, 0.88);
+      --tool-muted: #94a3b8;
+      --tool-line: rgba(148, 163, 184, 0.22);
+      --tool-blue: #38bdf8;
+      --tool-cyan: #22d3ee;
+      --tool-green: #22c55e;
+      --tool-orange: #f97316;
+      width: min(1180px, calc(100% - 34px));
+      margin: 0 auto;
+      padding: 132px 0 72px;
+    }
+
+    .toolkit-hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--tool-line);
+      border-radius: 28px;
+      padding: 44px;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.62)),
+        radial-gradient(circle at 70% 20%, rgba(56, 189, 248, 0.18), transparent 38%);
+      box-shadow: var(--shadow);
+    }
+
+    .toolkit-hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 320px;
+      height: 320px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 90px rgba(56, 189, 248, 0.16);
+    }
+
+    .toolkit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 999px;
+      color: #bfdbfe;
+      background: rgba(14, 165, 233, 0.1);
+      font-family: var(--font-code);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .toolkit-hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-code);
+      font-size: clamp(2.15rem, 5vw, 4rem);
+      line-height: 1.08;
+    }
+
+    .toolkit-hero p {
+      position: relative;
+      z-index: 1;
+      max-width: 770px;
+      margin: 22px 0 0;
+      color: var(--tool-muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    .toolkit-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .toolkit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.26);
+      border-radius: 14px;
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .toolkit-btn.primary {
+      color: #04111f;
+      border-color: rgba(125, 211, 252, 0.55);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.95), rgba(34, 211, 238, 0.85));
+      box-shadow: 0 0 32px rgba(56, 189, 248, 0.22);
+    }
+
+    .toolkit-btn:hover,
+    .tool-mini-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 0 32px rgba(56, 189, 248, 0.12);
+    }
+
+    .toolkit-section {
+      margin-top: 44px;
+    }
+
+    .toolkit-section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .toolkit-section h2 {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--font-code);
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+    }
+
+    .toolkit-hint {
+      margin: 6px 0 0;
+      color: var(--tool-muted);
+      line-height: 1.5;
+    }
+
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tool-card {
+      position: relative;
+      min-height: 240px;
+      overflow: hidden;
+      border: 1px solid var(--tool-line);
+      border-radius: 22px;
+      padding: 20px;
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.68)),
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 32%);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.45);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .tool-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(56, 189, 248, 0.24);
+      border-radius: 16px;
+      background: rgba(56, 189, 248, 0.11);
+      font-size: 1.45rem;
+    }
+
+    .tool-tag {
+      padding: 6px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 999px;
+      color: #cbd5e1;
+      background: rgba(15, 23, 42, 0.7);
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tool-tag.open {
+      color: #bbf7d0;
+      border-color: rgba(34, 197, 94, 0.25);
+      background: rgba(34, 197, 94, 0.08);
+    }
+
+    .tool-tag.freeware {
+      color: #bfdbfe;
+      border-color: rgba(59, 130, 246, 0.25);
+      background: rgba(59, 130, 246, 0.08);
+    }
+
+    .tool-card h3 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 1.2rem;
+    }
+
+    .tool-card p {
+      margin: 0;
+      color: var(--tool-muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+
+    .tool-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tool-pill {
+      padding: 6px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 999px;
+      color: #cbd5e1;
+      background: rgba(30, 41, 59, 0.86);
+      font-family: var(--font-code);
+      font-size: 0.72rem;
+    }
+
+    .tool-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tool-mini-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 12px;
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 12px;
+      color: #e0f2fe;
+      background: rgba(56, 189, 248, 0.08);
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .tool-note {
+      margin-top: 34px;
+      padding: 18px;
+      border: 1px solid rgba(249, 115, 22, 0.22);
+      border-radius: 20px;
+      color: #fed7aa;
+      background: rgba(249, 115, 22, 0.07);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 920px) {
+      .toolkit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .toolkit-hero {
+        padding: 34px 26px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .toolkit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toolkit-hero {
+        border-radius: 22px;
+      }
+
+      .toolkit-section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body data-theme="dark">
   <div class="site-bg" aria-hidden="true">
@@ -37,57 +331,187 @@
     <nav class="nav-container" aria-label="Navegación principal">
       <a class="brand-logo" href="/" aria-label="Universe-XT"><span>&lt;</span><strong>UXT</strong><span>/&gt;</span></a>
       <div class="nav-menu" id="navMenu">
-        <a href="/" class="nav-link"><span class="nav-icon">⌂</span><span>Home</span></a>
+        <a href="/" class="nav-link"><span class="nav-icon">&#8962;</span><span>Home</span></a>
         <a href="/cronicas/" class="nav-link"><span class="nav-icon">#</span><span>Crónicas</span></a>
         <a href="/#blog" class="nav-link"><span class="nav-icon">{}</span><span>Blog</span></a>
-        <a href="/downloads/" class="nav-link active"><span class="nav-icon">↓</span><span>Downloads</span></a>
-        <a href="/portfolio/" class="nav-link"><span class="nav-icon">↗</span><span>Portfolio</span></a>
+        <a href="/downloads/" class="nav-link active"><span class="nav-icon">&darr;</span><span>Descargas</span></a>
+        <a href="/portfolio/" class="nav-link"><span class="nav-icon">&nearr;</span><span>Portfolio</span></a>
         <a href="/#contact" class="nav-link"><span class="nav-icon">@</span><span>Contact</span></a>
       </div>
       <div class="nav-controls">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar contraste" aria-pressed="false">◐</button>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar contraste" aria-pressed="false">&#9680;</button>
         <button class="menu-toggle" id="menuToggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú"><span></span><span></span><span></span></button>
       </div>
     </nav>
   </header>
 
-  <main class="main-content">
-    <section class="hero-section listing-hero">
-      <div class="section-container">
-        <div class="hero-content reveal">
-          <p class="hero-greeting"><span>./tools --list</span><span class="cursor">|</span></p>
-          <h1 class="hero-name"><span class="code-variable">Downloads</span></h1>
-          <p class="hero-description">Landing simple para herramientas, checklists, plantillas y recursos técnicos descargables.</p>
-        </div>
+  <main class="main-content downloads-toolkit">
+    <section class="toolkit-hero">
+      <span class="toolkit-badge">Sysadmin Toolkit · Freeware / Open Source</span>
+      <h1>Herramientas gratuitas para administradores de sistemas</h1>
+      <p>Una colección práctica de utilidades para monitoreo, inventario, acceso remoto, diagnóstico de red, soporte Windows/Linux, backups y rescate técnico.</p>
+      <div class="toolkit-actions">
+        <a class="toolkit-btn primary" href="#kit-recomendado">Ver kit recomendado</a>
+        <a class="toolkit-btn" href="#todas">Explorar herramientas</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-container">
-        <header class="section-header reveal">
-          <span class="section-number">01</span>
-          <h2><span>&lt;</span>Recursos<span>/&gt;</span></h2>
-          <div class="section-line"></div>
-        </header>
-        <div class="article-grid">
-          <article class="project-card reveal">
-            <span class="project-tag">Próximamente</span>
-            <h3>Checklist de primer diagnóstico</h3>
-            <p>Documento base para ordenar síntomas, alcance, impacto y próximas verificaciones.</p>
-          </article>
-          <article class="project-card reveal">
-            <span class="project-tag">Próximamente</span>
-            <h3>Plantilla de reporte técnico</h3>
-            <p>Formato reutilizable para registrar incidentes, decisiones y acciones de seguimiento.</p>
-          </article>
+    <section class="toolkit-section" id="kit-recomendado">
+      <div class="toolkit-section-head">
+        <div>
+          <h2>Kit recomendado</h2>
+          <p class="toolkit-hint">Las herramientas que conviene tener primero en cualquier entorno técnico.</p>
         </div>
       </div>
+      <div class="toolkit-grid">
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">WIN</div><span class="tool-tag freeware">Freeware</span></div>
+          <h3>Sysinternals Suite</h3>
+          <p>Suite esencial de Microsoft para diagnosticar procesos, arranque, servicios, red, permisos y problemas avanzados en Windows.</p>
+          <div class="tool-meta"><span class="tool-pill">Windows</span><span class="tool-pill">Troubleshooting</span><span class="tool-pill">Portable</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">SNMP</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Zabbix</h3>
+          <p>Monitoreo de servidores, routers, switches, servicios, SNMP, discos, CPU, RAM y alertas centralizadas.</p>
+          <div class="tool-meta"><span class="tool-pill">Linux</span><span class="tool-pill">Windows Agent</span><span class="tool-pill">SNMP</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.zabbix.com/download" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">ITSM</div><span class="tool-tag open">Open Source</span></div>
+          <h3>GLPI</h3>
+          <p>Gestión de inventario, activos, tickets, licencias, contratos y mesa de ayuda para instituciones o empresas.</p>
+          <div class="tool-meta"><span class="tool-pill">Helpdesk</span><span class="tool-pill">Inventario</span><span class="tool-pill">Web</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.glpi-project.org/en/downloads/" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">RMM</div><span class="tool-tag open">Open Source</span></div>
+          <h3>MeshCentral</h3>
+          <p>Acceso remoto self-hosted con escritorio remoto, terminal, administración de archivos y agentes para equipos.</p>
+          <div class="tool-meta"><span class="tool-pill">Remote Admin</span><span class="tool-pill">Self-hosted</span><span class="tool-pill">Web</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://github.com/Ylianst/MeshCentral" target="_blank" rel="noopener noreferrer">GitHub</a><a class="tool-mini-btn" href="https://docs.meshcentral.com/" target="_blank" rel="noopener noreferrer">Docs</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">NET</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Nmap</h3>
+          <p>Escaneo de red, detección de hosts, puertos abiertos, servicios, versiones y auditoría básica de infraestructura.</p>
+          <div class="tool-meta"><span class="tool-pill">Red</span><span class="tool-pill">Puertos</span><span class="tool-pill">CLI</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://nmap.org/download" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">PCAP</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Wireshark</h3>
+          <p>Captura y análisis de paquetes para diagnosticar DNS, DHCP, TCP, HTTP, pérdidas, retransmisiones y tráfico sospechoso.</p>
+          <div class="tool-meta"><span class="tool-pill">Packet Capture</span><span class="tool-pill">Red</span><span class="tool-pill">Análisis</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.wireshark.org/download.html" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+      </div>
     </section>
+
+    <section class="toolkit-section" id="todas">
+      <div class="toolkit-section-head">
+        <div>
+          <h2>Más herramientas útiles</h2>
+          <p class="toolkit-hint">Utilidades para soporte diario, backups, conexiones remotas y pendrive técnico.</p>
+        </div>
+      </div>
+      <div class="toolkit-grid">
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">SSH</div><span class="tool-tag open">Open Source</span></div>
+          <h3>PuTTY</h3>
+          <p>Cliente SSH clásico para conectarse a servidores Linux, routers, switches y equipos de red.</p>
+          <div class="tool-meta"><span class="tool-pill">SSH</span><span class="tool-pill">Windows</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.putty.org/" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">SFTP</div><span class="tool-tag freeware">Freeware</span></div>
+          <h3>WinSCP</h3>
+          <p>Cliente SFTP/SCP/FTP para transferir archivos entre Windows y servidores Linux de forma sencilla.</p>
+          <div class="tool-meta"><span class="tool-pill">SFTP</span><span class="tool-pill">SCP</span><span class="tool-pill">Windows</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://winscp.net/eng/download.php" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">RDP</div><span class="tool-tag open">Open Source</span></div>
+          <h3>mRemoteNG</h3>
+          <p>Administrador de conexiones RDP, SSH, VNC, Telnet y web en una sola interfaz con pestañas.</p>
+          <div class="tool-meta"><span class="tool-pill">RDP</span><span class="tool-pill">SSH</span><span class="tool-pill">Windows</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://mremoteng.org/download" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">UP</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Uptime Kuma</h3>
+          <p>Monitoreo simple de sitios web, APIs, servicios, puertos y certificados con panel visual y alertas.</p>
+          <div class="tool-meta"><span class="tool-pill">Web</span><span class="tool-pill">Docker</span><span class="tool-pill">Status</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">CPU</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Netdata</h3>
+          <p>Panel de métricas en tiempo real para servidores Linux, ideal para diagnóstico rápido de rendimiento.</p>
+          <div class="tool-meta"><span class="tool-pill">Linux</span><span class="tool-pill">Métricas</span><span class="tool-pill">Tiempo real</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.netdata.cloud/" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">BKP</div><span class="tool-tag freeware">Free</span></div>
+          <h3>Veeam Agent Free</h3>
+          <p>Backup gratuito para equipos individuales, útil para estaciones de trabajo y servidores puntuales.</p>
+          <div class="tool-meta"><span class="tool-pill">Backup</span><span class="tool-pill">Windows</span><span class="tool-pill">Linux</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.veeam.com/products/free/microsoft-windows.html" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">ENC</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Duplicati</h3>
+          <p>Backups cifrados hacia discos, SFTP, WebDAV, S3, Google Drive y otros destinos.</p>
+          <div class="tool-meta"><span class="tool-pill">Backup</span><span class="tool-pill">Cifrado</span><span class="tool-pill">Multiplataforma</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.duplicati.com/download" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">FIND</div><span class="tool-tag freeware">Freeware</span></div>
+          <h3>Everything</h3>
+          <p>Búsqueda instantánea de archivos en Windows. Muy útil para soporte técnico y limpieza de equipos.</p>
+          <div class="tool-meta"><span class="tool-pill">Windows</span><span class="tool-pill">Archivos</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.voidtools.com/downloads/" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">DISK</div><span class="tool-tag freeware">Freeware</span></div>
+          <h3>WizTree</h3>
+          <p>Analizador de espacio en disco. Encuentra rápido carpetas y archivos que consumen demasiado almacenamiento.</p>
+          <div class="tool-meta"><span class="tool-pill">Windows</span><span class="tool-pill">Disco</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://diskanalyzer.com/download" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">TEMP</div><span class="tool-tag freeware">Freeware</span></div>
+          <h3>HWiNFO</h3>
+          <p>Información de hardware, sensores, temperaturas, discos, CPU, RAM y diagnóstico físico del equipo.</p>
+          <div class="tool-meta"><span class="tool-pill">Hardware</span><span class="tool-pill">Sensores</span><span class="tool-pill">Windows</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.hwinfo.com/download/" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">USB</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Rufus</h3>
+          <p>Crea pendrives booteables de Windows, Linux y herramientas de rescate de forma rápida.</p>
+          <div class="tool-meta"><span class="tool-pill">USB Boot</span><span class="tool-pill">Windows</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://rufus.ie/" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+        <article class="tool-card">
+          <div class="tool-top"><div class="tool-icon">ISO</div><span class="tool-tag open">Open Source</span></div>
+          <h3>Ventoy</h3>
+          <p>Pendrive multiboot: copiás varias ISO y elegís cuál iniciar desde un menú.</p>
+          <div class="tool-meta"><span class="tool-pill">Multiboot</span><span class="tool-pill">ISO</span><span class="tool-pill">Rescate</span></div>
+          <div class="tool-actions"><a class="tool-mini-btn" href="https://www.ventoy.net/en/download.html" target="_blank" rel="noopener noreferrer">Sitio oficial</a></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="tool-note">
+      <strong>Nota:</strong> se recomienda descargar siempre desde los sitios oficiales. Evitá instaladores republicados, mirrors dudosos o paquetes modificados por terceros.
+    </div>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Universe-XT</p>
-    <p>Recursos estáticos y herramientas livianas.</p>
+    <p>&copy; <span id="year"></span> Universe-XT</p>
+    <p>Herramientas gratuitas para soporte, servidores y redes.</p>
   </footer>
 
   <script src="/assets/main.js"></script>
