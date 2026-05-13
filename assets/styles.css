@@ -1155,6 +1155,11 @@ pre {
   padding: 138px 0 80px;
 }
 
+.post-shell .reveal {
+  opacity: 1;
+  transform: none;
+}
+
 .post-header {
   margin-bottom: 30px;
 }
