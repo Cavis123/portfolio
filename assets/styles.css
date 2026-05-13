@@ -1284,7 +1284,7 @@ pre {
 }
 
 .post-shell {
-  width: min(860px, calc(100% - 34px));
+  width: min(820px, calc(100% - 34px));
   margin: 0 auto;
   padding: 138px 0 80px;
 }
@@ -1310,11 +1310,11 @@ pre {
 .post-content {
   color: var(--muted);
   font-size: 1.08rem;
-  line-height: 1.82;
+  line-height: 1.7;
 }
 
 .post-content {
-  padding: 28px;
+  padding: 26px;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 18px;
   background: var(--panel);
@@ -1323,7 +1323,7 @@ pre {
 }
 
 .post-content p {
-  margin: 0 0 20px;
+  margin: 0 0 1.1rem;
 }
 
 .post-content p:last-child {
@@ -1332,12 +1332,13 @@ pre {
 
 .post-section + .post-section,
 .post-section + .damage-file {
-  margin-top: 34px;
+  margin-top: 2.25rem;
 }
 
 .post-section h2,
+.post-section h3,
 .damage-file h2 {
-  margin: 0 0 16px;
+  margin: 0 0 0.9rem;
   color: var(--text);
   font-family: var(--font-code);
   font-size: 1.08rem;
@@ -1352,7 +1353,7 @@ pre {
 }
 
 .damage-file {
-  padding: 24px;
+  padding: 22px;
   border: 1px solid rgba(255, 159, 67, 0.32);
   border-radius: 18px;
   background:
@@ -1367,14 +1368,14 @@ pre {
 
 .damage-file dl {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   margin: 0;
 }
 
 .damage-file dl div {
   display: grid;
   gap: 5px;
-  padding-bottom: 14px;
+  padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1668,6 +1669,34 @@ pre {
 
   .btn {
     width: 100%;
+  }
+
+  .post-shell {
+    width: min(100% - 24px, 820px);
+    padding: 112px 0 58px;
+  }
+
+  .post-header {
+    margin-bottom: 22px;
+  }
+
+  .post-content {
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .post-content p {
+    margin-bottom: 1rem;
+  }
+
+  .post-section + .post-section,
+  .post-section + .damage-file {
+    margin-top: 2rem;
+  }
+
+  .damage-file {
+    padding: 18px;
   }
 
   .nav-control-link {
