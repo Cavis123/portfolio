@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://universe-xt.com/sitemap.xml
