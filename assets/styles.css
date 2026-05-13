@@ -1103,6 +1103,103 @@ pre {
   font-size: 0.74rem;
 }
 
+.featured-chronicles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.chronicle-card {
+  min-height: 250px;
+  overflow: hidden;
+}
+
+.chronicle-card::after {
+  content: "";
+  position: absolute;
+  right: -18%;
+  bottom: -36%;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 45, 248, 0.14), transparent 68%);
+  pointer-events: none;
+}
+
+.chronicle-archive {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid rgba(72, 243, 255, 0.14);
+  border-left: 2px solid rgba(72, 243, 255, 0.72);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(72, 243, 255, 0.08), rgba(255, 45, 248, 0.04)),
+    rgba(7, 9, 23, 0.74);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28), inset 0 0 28px rgba(72, 243, 255, 0.04);
+}
+
+.chronicle-archive-head h3 {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-code);
+  font-size: 1.08rem;
+}
+
+.chronicle-archive-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.archive-chronicle-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.archive-chronicle-item {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 15px 16px 15px 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background:
+    linear-gradient(90deg, rgba(72, 243, 255, 0.1), rgba(255, 255, 255, 0.025)),
+    rgba(4, 7, 18, 0.52);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.archive-chronicle-item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(var(--cyan), var(--pink));
+  box-shadow: 0 0 18px rgba(72, 243, 255, 0.52);
+}
+
+.archive-chronicle-item:hover {
+  transform: translateX(6px);
+  border-color: rgba(72, 243, 255, 0.32);
+  background:
+    linear-gradient(90deg, rgba(72, 243, 255, 0.14), rgba(255, 45, 248, 0.06)),
+    rgba(7, 9, 23, 0.82);
+}
+
+.archive-chronicle-item span {
+  color: var(--text);
+  font-weight: 800;
+}
+
+.archive-chronicle-item small {
+  color: var(--muted);
+  font-family: var(--font-code);
+  font-size: 0.74rem;
+}
+
 .certifications-cta {
   padding-top: 20px;
 }
@@ -1483,6 +1580,7 @@ pre {
 
   .service-grid,
   .article-grid,
+  .featured-chronicles,
   .skills-layout,
   .stats-grid {
     grid-template-columns: minmax(0, 1fr);
