@@ -1065,6 +1065,7 @@ pre {
 }
 
 .project-card {
+  position: relative;
   padding: 24px;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
@@ -1147,6 +1148,13 @@ pre {
 
 .text-link:hover {
   color: var(--pink);
+}
+
+.stretched-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
 }
 
 .post-shell {
