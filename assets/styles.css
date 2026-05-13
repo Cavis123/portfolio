@@ -1286,7 +1286,7 @@ pre {
 .post-shell {
   width: min(820px, calc(100% - 34px));
   margin: 0 auto;
-  padding: 138px 0 80px;
+  padding: 112px 0 56px;
 }
 
 .post-shell .reveal {
@@ -1295,7 +1295,7 @@ pre {
 }
 
 .post-header {
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 
 .post-header h1 {
@@ -1306,15 +1306,27 @@ pre {
   line-height: 1.16;
 }
 
-.post-header p:last-child,
+.post-excerpt,
 .post-content {
   color: var(--muted);
   font-size: 1.08rem;
-  line-height: 1.7;
+  line-height: 1.68;
+}
+
+.post-excerpt {
+  margin: 0;
+}
+
+.post-meta {
+  margin: 12px 0 0;
+  color: rgba(194, 211, 255, 0.68);
+  font-family: var(--font-code);
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
 }
 
 .post-content {
-  padding: 26px;
+  padding: 22px 24px;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 18px;
   background: var(--panel);
@@ -1323,7 +1335,12 @@ pre {
 }
 
 .post-content p {
-  margin: 0 0 1.1rem;
+  margin: 0 0 0.65rem;
+}
+
+.post-section h2 + p,
+.post-section h3 + p {
+  margin-top: 0.1rem;
 }
 
 .post-content p:last-child {
@@ -1332,13 +1349,13 @@ pre {
 
 .post-section + .post-section,
 .post-section + .damage-file {
-  margin-top: 2.25rem;
+  margin-top: 1.8rem;
 }
 
 .post-section h2,
 .post-section h3,
 .damage-file h2 {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.6rem;
   color: var(--text);
   font-family: var(--font-code);
   font-size: 1.08rem;
@@ -1353,7 +1370,7 @@ pre {
 }
 
 .damage-file {
-  padding: 22px;
+  padding: 18px 20px;
   border: 1px solid rgba(255, 159, 67, 0.32);
   border-radius: 18px;
   background:
@@ -1368,14 +1385,14 @@ pre {
 
 .damage-file dl {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin: 0;
 }
 
 .damage-file dl div {
   display: grid;
   gap: 5px;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1396,6 +1413,70 @@ pre {
   margin: 0;
   color: var(--text);
   line-height: 1.6;
+}
+
+.post-navigation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.post-nav-link,
+.post-nav-back {
+  display: flex;
+  min-height: 58px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: rgba(7, 9, 23, 0.62);
+  color: var(--muted);
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.post-nav-link {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.post-nav-link span,
+.post-nav-back {
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+}
+
+.post-nav-link strong {
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.post-nav-link-next {
+  text-align: right;
+}
+
+.post-nav-back {
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan);
+  white-space: nowrap;
+}
+
+.post-nav-link:hover,
+.post-nav-back:hover {
+  transform: translateY(-2px);
+  border-color: rgba(72, 243, 255, 0.32);
+  background: rgba(72, 243, 255, 0.08);
+  color: var(--cyan);
+}
+
+.post-nav-link-empty {
+  pointer-events: none;
+  opacity: 0;
 }
 
 .cert-strip {
@@ -1673,30 +1754,42 @@ pre {
 
   .post-shell {
     width: min(100% - 24px, 820px);
-    padding: 112px 0 58px;
+    padding: 96px 0 42px;
   }
 
   .post-header {
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 
   .post-content {
-    padding: 20px;
+    padding: 18px;
     font-size: 1rem;
     line-height: 1.68;
   }
 
   .post-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
   }
 
   .post-section + .post-section,
   .post-section + .damage-file {
-    margin-top: 2rem;
+    margin-top: 1.65rem;
   }
 
   .damage-file {
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .post-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav-link-empty {
+    display: none;
+  }
+
+  .post-nav-link-next {
+    text-align: left;
   }
 
   .nav-control-link {
